@@ -14,11 +14,7 @@ export const useForm = () => {
   const [values, setValues] = useState(initialValue);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
-  const handleChanges = (e) => {
-    setValues({ ...values, [e.target.name]: e.target.value });
-  };
-
-  return [values, setValues, handleChanges];
+  return [values, setValues, showSuccessMessage, setShowSuccessMessage];
 };
 
 export default useForm;
