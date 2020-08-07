@@ -14,7 +14,21 @@ export const useForm = () => {
   const [values, setValues] = useState(initialValue);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
-  return [values, setValues, showSuccessMessage, setShowSuccessMessage];
-};
+  const handleChanges = (e) => {
+    setValues({ ...values, [e.target.name]: e.target.value });
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setShowSuccessMessage(true);
+  };
 
+  return [
+    values,
+    setValues,
+    showSuccessMessage,
+    setShowSuccessMessage,
+    handleChanges,
+    handleSubmit,
+  ];
+};
 export default useForm;
